@@ -1,6 +1,7 @@
 import CartItem from '../CartItem/CartItem';
 import { Wrapper } from './Cart.styles';
 import { CartItemType } from '../App';
+import Item from '../Item/Item';
 
 type Props = {
   cartItems: CartItemType[];
@@ -10,7 +11,9 @@ type Props = {
 
 const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
   const calculateTotal = (items: CartItemType[]) =>
-    items.reduce((ack: number, item) => ack + item.amount * item.price, 0);
+    items.reduce((ack: number, item) => ack + item.amount * item.price, 0); 
+  const calculateDiscount = (items: CartItemType[]) =>
+    items.reduce((ack: number,item) => ack + item.amount * item.price, 0);
 
   return (
     <Wrapper>
@@ -25,7 +28,7 @@ const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
         />
       ))}
       <h3>Total before discount: ${calculateTotal(cartItems).toFixed(2)}</h3>
-      <h3>Total discount: ${calculateTotal(cartItems).toFixed(2)}</h3>
+      <h3>Total discount: ${calculateDiscount(cartItems).toFixed(2)}</h3>
       <h3>Total: ${calculateTotal(cartItems).toFixed(2)}</h3>
       <h3 style={{ display: 'flex', alignItems: 'center',justifyContent: 'center',}}>Check Out</h3>
     </Wrapper>

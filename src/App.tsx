@@ -11,7 +11,6 @@ import Badge from '@material-ui/core/Badge';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
-import Pagination from '@material-ui/lab/Pagination';
 // Styles
 import { Wrapper, StyledButton } from './App.styles';
 // Types
@@ -76,7 +75,7 @@ const App = () => {
 
   return (
     <Wrapper>
-       <AppBar style={{backgroundColor: 'Linen'}}>
+      <AppBar style={{backgroundColor: 'Linen'}}>
           <Toolbar>
       <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
         <Cart 
@@ -101,7 +100,6 @@ const App = () => {
         ))}
       </Grid>
       <br></br>
-      <Pagination count={10} variant="outlined" style={{ display: 'flex', alignItems: 'center',justifyContent: 'center',}} />
       <div>
         <br></br>
         <hr></hr>
